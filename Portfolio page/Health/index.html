@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareFlow Scheduler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Health Operations</p>
+            <h1>CareFlow</h1>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Primary">
+          <button class="nav-item active">Dashboard</button>
+          <button class="nav-item">Appointments</button>
+          <button class="nav-item">Patients</button>
+          <button class="nav-item">Staff</button>
+          <button class="nav-item">Billing</button>
+        </nav>
+
+        <section class="sidebar-card">
+          <p class="eyebrow">Today</p>
+          <h2 id="todayDate">Wednesday, March 25</h2>
+          <p id="todaySummary">12 upcoming visits and 4 telehealth check-ins.</p>
+        </section>
+
+        <section class="sidebar-card customization-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Customize</p>
+              <h2>Dashboard</h2>
+            </div>
+          </div>
+
+          <label class="control">
+            <span>Accent palette</span>
+            <select id="themeSelect">
+              <option value="ocean">Ocean calm</option>
+              <option value="mint">Mint care</option>
+              <option value="sunrise">Sunrise warm</option>
+            </select>
+          </label>
+
+          <label class="control switch">
+            <span>Compact widgets</span>
+            <input type="checkbox" id="densityToggle" />
+          </label>
+
+          <div class="widget-toggles">
+            <p class="control-label">Visible widgets</p>
+            <label><input type="checkbox" data-widget="capacity" checked /> Capacity</label>
+            <label><input type="checkbox" data-widget="alerts" checked /> Alerts</label>
+            <label><input type="checkbox" data-widget="tasks" checked /> Care tasks</label>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <header class="hero-card">
+          <div>
+            <p class="eyebrow">Care coordination made clear</p>
+            <h2>Schedule visits, spot workload issues, and tailor the dashboard for every role.</h2>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn" id="openModalBtn">Book appointment</button>
+            <button class="ghost-btn" id="fillDemoBtn">Focus provider view</button>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <p class="eyebrow">Check-ins</p>
+            <h3 id="statCheckins">18</h3>
+            <span>Patients confirmed today</span>
+          </article>
+          <article class="stat-card">
+            <p class="eyebrow">Utilization</p>
+            <h3 id="statUtilization">82%</h3>
+            <span>Provider calendar usage</span>
+          </article>
+          <article class="stat-card" data-widget-card="capacity">
+            <p class="eyebrow">Open slots</p>
+            <h3 id="statOpenSlots">6</h3>
+            <span>Same-day capacity remaining</span>
+          </article>
+          <article class="stat-card" data-widget-card="alerts">
+            <p class="eyebrow">Alerts</p>
+            <h3 id="statAlerts">3</h3>
+            <span>Follow-ups nearing SLA</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <section class="panel panel-wide">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Appointments</p>
+                <h2>Today's schedule</h2>
+              </div>
+              <label class="search-input">
+                <span class="sr-only">Search appointments</span>
+                <input type="search" id="searchInput" placeholder="Search patient or provider" />
+              </label>
+            </div>
+
+            <div class="schedule-header" id="scheduleHeader"></div>
+            <div class="appointment-list" id="appointmentList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Operations</p>
+                <h2>Queue snapshot</h2>
+              </div>
+            </div>
+
+            <div class="queue-list" id="queueList"></div>
+          </section>
+
+          <section class="panel" data-widget-panel="tasks">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Care Team</p>
+                <h2>Priority tasks</h2>
+              </div>
+            </div>
+
+            <ul class="task-list" id="taskList"></ul>
+          </section>
+
+          <section class="panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Insights</p>
+                <h2>Provider workload</h2>
+              </div>
+            </div>
+
+            <div class="provider-grid" id="providerGrid"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="appointmentModal" class="modal">
+      <form class="modal-card" id="appointmentForm" method="dialog">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">New appointment</p>
+            <h2>Add to schedule</h2>
+          </div>
+          <button type="button" class="icon-btn" id="closeModalBtn" aria-label="Close form">X</button>
+        </div>
+
+        <div class="form-grid">
+          <label class="control">
+            <span>Patient name</span>
+            <input type="text" id="patientName" required />
+          </label>
+          <label class="control">
+            <span>Provider</span>
+            <select id="providerName" required>
+              <option value="Dr. Malik">Dr. Malik</option>
+              <option value="Dr. Rivera">Dr. Rivera</option>
+              <option value="Dr. Chen">Dr. Chen</option>
+              <option value="NP Jordan">NP Jordan</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>Visit type</span>
+            <select id="visitType" required>
+              <option value="Follow-up">Follow-up</option>
+              <option value="Annual physical">Annual physical</option>
+              <option value="Telehealth">Telehealth</option>
+              <option value="Lab review">Lab review</option>
+              <option value="Vaccination">Vaccination</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>Time</span>
+            <input type="time" id="visitTime" required />
+          </label>
+          <label class="control">
+            <span>Mode</span>
+            <select id="visitMode" required>
+              <option value="In person">In person</option>
+              <option value="Telehealth">Telehealth</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>Priority</span>
+            <select id="visitPriority" required>
+              <option value="Routine">Routine</option>
+              <option value="Urgent">Urgent</option>
+              <option value="High risk">High risk</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="control">
+          <span>Notes</span>
+          <textarea id="visitNotes" rows="3" placeholder="Add care instructions or prep notes"></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="ghost-btn" id="cancelModalBtn">Cancel</button>
+          <button type="submit" class="primary-btn">Save appointment</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

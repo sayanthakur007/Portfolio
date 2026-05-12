@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Ticket Booking Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true">FILM</div>
+          <div class="brand__text">
+            <div class="brand__title">CineDash</div>
+            <div class="brand__subtitle">Interactive ticket booking</div>
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <div class="pill" id="clockPill" title="Live clock"></div>
+          <button class="btn btn--ghost" id="resetDemoBtn" type="button" title="Clear saved bookings">
+            Reset 
+          </button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar">
+          <section class="card">
+            <div class="card__header">
+              <h2 class="card__title">Browse movies</h2>
+              <p class="card__subtitle">Search by title & filter by genre</p>
+            </div>
+
+            <label class="field">
+              <span class="field__label">Search</span>
+              <input id="movieSearch" class="input" type="search" placeholder="e.g. Inception" />
+            </label>
+
+            <div class="field">
+              <span class="field__label">Genre</span>
+              <div class="segmented" role="tablist" aria-label="Genre filter" id="genreTabs"></div>
+            </div>
+
+            <div class="field">
+              <span class="field__label">Sort</span>
+              <select id="movieSort" class="select" aria-label="Sort movies">
+                <option value="ratingDesc">Top rated</option>
+                <option value="titleAsc">Title A-Z</option>
+                <option value="yearDesc">Newest</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="card card--list">
+            <div class="card__header card__header--row">
+              <h2 class="card__title">Movies</h2>
+              <span class="muted" id="movieCount">0 results</span>
+            </div>
+            <div class="movieList" id="movieList" aria-live="polite"></div>
+          </section>
+        </aside>
+
+        <section class="content">
+          <div class="grid">
+            <section class="card card--hero" aria-live="polite">
+              <div class="hero">
+                <div class="hero__poster" id="moviePoster" aria-hidden="true"></div>
+                <div class="hero__info">
+                  <div class="hero__kickers">
+                    <span class="badge" id="movieYear">-</span>
+                    <span class="badge badge--soft" id="movieGenre">-</span>
+                  </div>
+                  <h1 class="hero__title" id="movieTitle">Select a movie</h1>
+                  <p class="hero__desc" id="movieDesc">
+                    Choose a movie from the left to see showtimes and pick seats.
+                  </p>
+                  <div class="hero__meta">
+                    <div class="metaRow">
+                      <span class="metaLabel">Rating</span>
+                      <span class="metaValue" id="movieRating">-</span>
+                    </div>
+                    <div class="metaRow">
+                      <span class="metaLabel">Runtime</span>
+                      <span class="metaValue" id="movieRuntime">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <div class="card__header card__header--row">
+                <h2 class="card__title">Showtimes</h2>
+                <span class="muted" id="showtimeHint">Pick a show to book</span>
+              </div>
+              <div class="showtimeTabs" id="showtimeTabs"></div>
+            </section>
+
+            <section class="card">
+              <div class="card__header card__header--row">
+                <h2 class="card__title">Seat picker</h2>
+                <span class="muted" id="seatAvailability">-</span>
+              </div>
+
+              <div class="seatControls">
+                <label class="field field--inline">
+                  <span class="field__label">Ticket type</span>
+                  <select id="ticketType" class="select" aria-label="Ticket type">
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="student">Student</option>
+                  </select>
+                </label>
+                <label class="field field--inline">
+                  <span class="field__label">Max seats</span>
+                  <select id="maxSeats" class="select" aria-label="Max seats per booking">
+                    <option value="6">6</option>
+                    <option value="8" selected>8</option>
+                    <option value="10">10</option>
+                  </select>
+                </label>
+                <button class="btn btn--sm" id="clearSeatsBtn" type="button" disabled>
+                  Clear selection
+                </button>
+              </div>
+
+              <div class="legend" aria-label="Seat legend">
+                <div class="legendItem"><span class="dot dot--free"></span> Available</div>
+                <div class="legendItem"><span class="dot dot--selected"></span> Selected</div>
+                <div class="legendItem"><span class="dot dot--blocked"></span> Unavailable</div>
+              </div>
+
+              <div class="theater" role="region" aria-label="Seat map">
+                <div class="screen" aria-hidden="true">SCREEN</div>
+                <div class="seatGridWrap">
+                  <div class="seatGrid" id="seatGrid"></div>
+                </div>
+                <div class="rowLabels" aria-hidden="true" id="rowLabels"></div>
+              </div>
+            </section>
+
+            <section class="card card--summary">
+              <div class="card__header card__header--row">
+                <h2 class="card__title">Your booking</h2>
+                <span class="muted" id="bookingMeta">No show selected</span>
+              </div>
+              <div class="summaryGrid">
+                <div class="summaryLine">
+                  <span class="summaryKey">Selected seats</span>
+                  <span class="summaryVal" id="selectedCount">0</span>
+                </div>
+                <div class="summaryLine">
+                  <span class="summaryKey">Ticket price</span>
+                  <span class="summaryVal" id="ticketPrice">$-</span>
+                </div>
+                <div class="summaryLine">
+                  <span class="summaryKey">Subtotal</span>
+                  <span class="summaryVal" id="subtotal">$-</span>
+                </div>
+                <div class="summaryLine">
+                  <span class="summaryKey">Fees</span>
+                  <span class="summaryVal" id="fees">$-</span>
+                </div>
+                <div class="summaryLine summaryLine--total">
+                  <span class="summaryKey">Total</span>
+                  <span class="summaryVal" id="total">$-</span>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="summaryActions">
+                <button class="btn btn--primary" id="checkoutBtn" type="button" disabled>
+                  Checkout
+                </button>
+                <button class="btn btn--ghost" id="viewMyBookingsBtn" type="button">
+                  My bookings
+                </button>
+              </div>
+
+              <div class="selectedSeatsList" id="selectedSeatsList" aria-live="polite"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span class="muted">&copy Sayan Thakur</span>
+      </footer>
+    </div>
+
+    <div class="modal" id="modalRoot" aria-hidden="true">
+      <div class="modal__backdrop" data-close="true"></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__header">
+          <h3 class="modal__title" id="modalTitle">Modal</h3>
+          <button class="iconBtn" type="button" data-close="true" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        <div class="modal__body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+

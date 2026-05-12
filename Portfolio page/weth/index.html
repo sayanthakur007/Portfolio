@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ST weather forcasting app</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="panel panel-main">
+        <div class="brand">
+          <div class="hero-copy">
+            <span class="eyebrow">Live Conditions</span>
+            <h1>ST weather forcasting app</h1>
+            <p>Track current weather, the next few hours, and the upcoming week with a fluid, responsive dashboard powered by real-time forecast data.</p>
+          </div>
+          <div class="status-pill" id="lastUpdated">Waiting for weather data</div>
+        </div>
+
+        <div class="controls">
+          <form class="search" id="searchForm">
+            <input id="cityInput" type="text" placeholder="Search city, region, or country" aria-label="Search location" />
+            <button class="cta" type="submit">Search</button>
+          </form>
+          <button class="ghost" id="locationBtn" type="button">Use My Location</button>
+          <div class="unit-toggle" role="group" aria-label="Temperature unit selector">
+            <button id="metricBtn" class="active" type="button">&deg;C</button>
+            <button id="imperialBtn" type="button">&deg;F</button>
+          </div>
+        </div>
+
+        <div class="hero-weather">
+          <div class="weather-icon" id="currentIcon" aria-hidden="true">⛅</div>
+          <div>
+            <div class="temperature">
+              <strong id="currentTemp">--</strong>
+              <span id="currentSummary">Loading current weather...</span>
+            </div>
+            <div id="locationHeading" class="location-heading">Searching for a default city</div>
+            <div id="subHeading" class="sub-heading">Weather conditions will appear here.</div>
+          </div>
+        </div>
+
+        <div class="message" id="messageBox"></div>
+      </div>
+
+      <div class="panel meta-grid">
+        <div class="mini-card">
+          <div class="mini-label">Feels Like</div>
+          <div class="mini-value" id="apparentTemp">--</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">Wind</div>
+          <div class="mini-value" id="windSpeed">--</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">Humidity</div>
+          <div class="mini-value" id="humidity">--</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">Visibility</div>
+          <div class="mini-value" id="visibility">--</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">UV Index</div>
+          <div class="mini-value" id="uvIndex">--</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">Precipitation</div>
+          <div class="mini-value" id="precipitation">--</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="panel section">
+        <div class="section-head">
+          <h2>Hourly Outlook</h2>
+          <span id="hourlyCaption">Next 6 hours</span>
+        </div>
+        <div class="hourly-list" id="hourlyList"></div>
+      </div>
+
+      <div class="panel section">
+        <div class="section-head">
+          <h2>Weather Highlights</h2>
+          <span>Comfort and atmosphere</span>
+        </div>
+        <div class="highlights">
+          <article class="highlight-card">
+            <div class="mini-label">Air Comfort</div>
+            <strong id="comfortLabel">--</strong>
+            <p id="comfortCopy">We will estimate how the weather feels overall once live conditions are loaded.</p>
+          </article>
+          <article class="highlight-card">
+            <div class="mini-label">Rain Chance</div>
+            <strong id="rainChance">--</strong>
+            <p>Probability of precipitation over the next hour.</p>
+            <div class="bar"><span id="rainBar" style="width: 0%;"></span></div>
+          </article>
+          <article class="highlight-card">
+            <div class="mini-label">Wind Direction</div>
+            <strong id="windDirection">--</strong>
+            <p id="windDirectionCopy">Cardinal direction will appear with the current reading.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section weekly-panel">
+      <div class="section-head">
+        <h2>7-Day Forecast</h2>
+        <span id="dailyCaption">This week at a glance</span>
+      </div>
+      <div class="daily-list" id="dailyList"></div>
+    </section>
+
+    <p class="footer-note">&copy Sayan Thakur 2026</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

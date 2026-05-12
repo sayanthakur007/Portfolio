@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayan Thakur | Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Sayan Thakur, a software developer focused on modern web applications, Zoho CRM solutions, and interactive user experiences."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div id="page-loader" aria-live="polite" aria-label="Loading website" role="status">
+      <div class="loader-card">
+        <div class="loader-headline">Loading portfolio</div>
+        <div class="loader-progress-block" aria-label="Loading progress">
+          <div class="loader-progress-value">
+            <span class="loader-count" id="loaderValue">0</span>
+            <span class="loader-percent">%</span>
+          </div>
+          <div class="loader-bar" aria-hidden="true">
+            <div class="loader-bar-fill" id="loaderBarFill"></div>
+          </div>
+        </div>
+        <div class="loader-message">
+          <span id="loaderMessage">web developer</span>
+        </div>
+        <div class="loader-marquee" aria-hidden="true">
+          <div class="loader-marquee-track">
+            <span>web developer • front end developer • web app developer •</span>
+            <span>web developer • front end developer • web app developer •</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-shell">
+      <canvas class="particle-canvas starfield-canvas" aria-hidden="true"></canvas>
+      <div class="cursor-glow" aria-hidden="true"></div>
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="noise"></div>
+
+      <header class="topbar" id="top">
+        <nav class="navbar container">
+          <a class="brand" href="#hero" aria-label="Go to homepage">
+            <span class="brand-mark">ST</span>
+            <span class="brand-copy">
+              <strong>Sayan Thakur</strong>
+              <small>Web Developer</small>
+            </span>
+          </a>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="nav-panel">
+            <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+              <i class="fa-solid fa-moon theme-icon theme-icon-moon"></i>
+              <i class="fa-solid fa-sun theme-icon theme-icon-sun"></i>
+              <span>Theme</span>
+            </button>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a class="button button-sm" href="Sayan_Thakur_CV.pdf" target="_blank" rel="noreferrer">View CV</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero container" id="hero">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Open to software and web development opportunities</p>
+            <h1>
+              Building smart, polished digital experiences with
+              <span class="gradient-text">web engineering + CRM automation.</span>
+            </h1>
+            <p class="hero-text">
+              I'm Sayan Thakur, a Computer Science and Business Systems graduate from Narula Institute of Technology,
+              currently teaching programming while building responsive applications, Zoho CRM workflows, and user-first interfaces.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button" href="#projects">Explore Projects</a>
+              <a class="button button-ghost" href="mailto:sayanthakur11@gmail.com">Email Me</a>
+            </div>
+
+            <div class="hero-metrics">
+              <article class="metric glass reveal">
+                <strong data-count="8.06">0</strong>
+                <span>CGPA in B.Tech CSBS</span>
+              </article>
+              <article class="metric glass reveal">
+                <strong data-count="4">0</strong>
+                <span>Core resume projects shipped</span>
+              </article>
+              <article class="metric glass reveal">
+                <strong data-count="2025">0</strong>
+                <span>Started teaching in Aug 2025</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="profile-card glass tilt-card">
+              <div class="profile-top">
+                <p class="status-pill">
+                  <span></span>
+                  Available for interviews
+                </p>
+                <div class="circle" aria-label="Draggable profile image">
+                  <img src="profile-pic.jpg" alt="Portrait of Sayan Thakur" />
+                </div>
+              </div>
+
+              <div class="profile-body">
+                <div>
+                  <p class="mini-label">Current focus</p>
+                  <h2>Interactive web apps, CRM systems, and strong UI detail.</h2>
+                </div>
+
+                <ul class="highlights">
+                  <li><i class="fa-solid fa-code"></i> HTML, CSS, JavaScript, React, Python, SQL</li>
+                  <li><i class="fa-solid fa-diagram-project"></i> Zoho CRM, Zoho Creator, Deluge logic</li>
+                  <li><i class="fa-solid fa-chalkboard-user"></i> Teaching programming fundamentals</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trust-strip container reveal" aria-label="Quick profile facts">
+          <div class="glass trust-item">
+            <span>Location</span>
+            <strong>Barasat, West Bengal, India</strong>
+          </div>
+          <div class="glass trust-item">
+            <span>Phone</span>
+            <strong><a href="tel:+918420477615">+91 8420477615</a></strong>
+          </div>
+          <div class="glass trust-item">
+            <span>Languages</span>
+            <strong>Bengali, English, Hindi</strong>
+          </div>
+        </section>
+
+        <section class="section container" id="about">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About</p>
+            <h2>A portfolio designed to feel alive, but grounded in real work.</h2>
+          </div>
+
+          <div class="about-grid">
+            <article class="glass panel reveal">
+              <h3>Professional Summary</h3>
+              <p>
+                Computer Science and Business Systems graduate with hands-on experience in web application development
+                and Zoho CRM implementation. I enjoy turning complex workflows into clear interfaces, whether that means
+                building responsive frontends, automating business logic, or mentoring students through programming fundamentals.
+              </p>
+            </article>
+
+            <article class="glass panel reveal">
+              <h3>What makes me valuable</h3>
+              <div class="feature-list">
+                <div>
+                  <strong>Engineering mindset</strong>
+                  <p>Comfortable with programming, database concepts, algorithms, and application structure.</p>
+                </div>
+                <div>
+                  <strong>Business systems exposure</strong>
+                  <p>Experience building CRM-backed flows, custom modules, and workflow automation in Zoho.</p>
+                </div>
+                <div>
+                  <strong>Communication</strong>
+                  <p>Teaching has sharpened my ability to explain ideas, collaborate well, and lead users through complexity.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section container" id="experience">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Experience & Education</p>
+            <h2>A growing profile across teaching, product building, and applied development.</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item glass reveal">
+              <span class="timeline-tag">Experience</span>
+              <h3>Computer Science Faculty</h3>
+              <p class="timeline-meta">SoftTech Institute of Education Technology | Aug 2025 - Present</p>
+              <p>
+                Teaching C, Python, HTML, CSS, and JavaScript while mentoring students in programming logic,
+                problem solving, and software development concepts.
+              </p>
+            </article>
+
+            <article class="timeline-item glass reveal">
+              <span class="timeline-tag">Internship</span>
+              <h3>Web Development Intern</h3>
+              <p class="timeline-meta">CodSoft | Aug 2024 - Sep 2024</p>
+              <p>
+                Contributed to responsive web applications with HTML, CSS, JavaScript, and React, and supported
+                UI improvements and application testing to strengthen user experience.
+              </p>
+            </article>
+
+            <article class="timeline-item glass reveal">
+              <span class="timeline-tag">Education</span>
+              <h3>B.Tech in Computer Science & Business Systems</h3>
+              <p class="timeline-meta">Narula Institute of Technology, Kolkata | 2021 - 2025</p>
+              <p>Graduated with a CGPA of 8.06 and a foundation spanning software development and business systems thinking.</p>
+            </article>
+
+            <article class="timeline-item glass reveal">
+              <span class="timeline-tag">Education</span>
+              <h3>Higher Secondary (WBCHSE)</h3>
+              <p class="timeline-meta">2021</p>
+              <p>Scored 84.44%, reinforcing a strong academic base before entering engineering.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section container" id="projects">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Projects</p>
+            <h2>Selected work that shows both technical execution and practical thinking.</h2>
+          </div>
+
+          <div class="project-grid">
+            <a
+              class="project-card project-card-link glass reveal tilt-card"
+              href="weth/index.html"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Weather Forecast Web Application"
+            >
+              <div class="project-visual weather-theme">
+                <span>01</span>
+                <h3>Weather Forecast Web Application</h3>
+              </div>
+              <div class="project-body">
+                <p>
+                  Built a responsive real-time weather experience that displays temperature, humidity, and forecast
+                  data across multiple locations using live weather APIs.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>API Integration</li>
+                </ul>
+                <p class="project-link-label">Open project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card-link glass reveal tilt-card"
+              href="Health/index.html"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Health project"
+            >
+              <div class="project-visual health-theme">
+                <span>02</span>
+                <h3>Health</h3>
+              </div>
+              <div class="project-body">
+                <p>
+                  Designed a healthcare scheduling dashboard with appointment tracking, patient flow visibility,
+                  and a polished interface focused on daily operations.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Dashboard UI</li>
+                </ul>
+                <p class="project-link-label">Open project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card-link glass reveal tilt-card"
+              href="landing page/index.html"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Landing Page project"
+            >
+              <div class="project-visual landing-theme">
+                <span>03</span>
+                <h3>Landing Page</h3>
+              </div>
+              <div class="project-body">
+                <p>
+                  Built a responsive pizza brand landing page with animated sections, mobile navigation,
+                  and a playful visual style tailored for product promotion.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Responsive Design</li>
+                </ul>
+                <p class="project-link-label">Open project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card-link glass reveal tilt-card"
+              href="Cinedash/index.html"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open CineDash project"
+            >
+              <div class="project-visual cinedash-theme">
+                <span>04</span>
+                <h3>CineDash</h3>
+              </div>
+              <div class="project-body">
+                <p>
+                  Created an interactive movie ticket booking dashboard with movie browsing, search,
+                  and demo booking flows wrapped in a compact app-style interface.
+                </p>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>Interactive UI</li>
+                </ul>
+                <p class="project-link-label">Open project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="section container section-skills" id="skills">
+          <div class="skills-shapes" aria-hidden="true">
+            <span class="shape shape-one"></span>
+            <span class="shape shape-two"></span>
+            <span class="shape shape-three"></span>
+          </div>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Skills & Certifications</p>
+            <h2>Balanced between development foundations, frontend implementation, and business tooling.</h2>
+          </div>
+
+          <div class="skills-layout">
+            <article class="glass panel reveal">
+              <h3>Core skills</h3>
+              <div class="skills-showcase" aria-label="Core skills">
+                <article class="skill-card skill-card-wide">
+                  <span class="skill-card-icon"><i class="fa-brands fa-python" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>Python</strong>
+                    <p>Backend logic, scripting, and problem solving.</p>
+                  </div>
+                </article>
+                <article class="skill-card skill-card-accent">
+                  <span class="skill-card-icon"><i class="fa-brands fa-js" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>JavaScript</strong>
+                    <p>Interactive UI and browser-first experiences.</p>
+                  </div>
+                </article>
+                <article class="skill-card">
+                  <span class="skill-card-icon"><i class="fa-brands fa-react" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>React</strong>
+                    <p>Reusable components and modern frontends.</p>
+                  </div>
+                </article>
+                <article class="skill-card">
+                  <span class="skill-card-icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>HTML5</strong>
+                    <p>Semantic structure with accessible layout foundations.</p>
+                  </div>
+                </article>
+                <article class="skill-card">
+                  <span class="skill-card-icon"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>CSS3</strong>
+                    <p>Responsive styling, motion, and polished visual detail.</p>
+                  </div>
+                </article>
+                <article class="skill-card skill-card-wide">
+                  <span class="skill-card-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>Zoho CRM</strong>
+                    <p>Business workflows, automation, and custom modules.</p>
+                  </div>
+                </article>
+                <article class="skill-card">
+                  <span class="skill-card-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>SQL</strong>
+                    <p>Structured data handling and relational thinking.</p>
+                  </div>
+                </article>
+                <article class="skill-card">
+                  <span class="skill-card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                  <div>
+                    <strong>DBMS</strong>
+                    <p>Database concepts, design, and query fundamentals.</p>
+                  </div>
+                </article>
+              </div>
+            </article>
+
+            <article class="glass panel reveal">
+              <h3>Tools and certifications</h3>
+              <div class="pill-cloud">
+                <span>C</span>
+                <span>Python</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+                <span>React</span>
+                <span>Zoho CRM</span>
+                <span>Zoho Creator</span>
+                <span>SaaS Applications</span>
+                <span>DBMS</span>
+                <span>DSA Basics</span>
+              </div>
+
+              <div class="cert-list" aria-label="Certifications">
+                <article class="cert-card">
+                  <span class="cert-badge">Certified</span>
+                  <strong>Object-Oriented Data Structures in C++</strong>
+                  <p>Coursera</p>
+                </article>
+                <article class="cert-card">
+                  <span class="cert-badge">Certified</span>
+                  <strong>Responsive Web Development</strong>
+                  <p>Coursera</p>
+                </article>
+                <article class="cert-card">
+                  <span class="cert-badge">Simulation</span>
+                  <strong>AWS APAC Solutions Architecture</strong>
+                  <p>Forage</p>
+                </article>
+                <article class="cert-card">
+                  <span class="cert-badge">Simulation</span>
+                  <strong>Accenture Data Analytics & Visualization</strong>
+                  <p>Forage</p>
+                </article>
+                <article class="cert-card cert-card-highlight">
+                  <span class="cert-badge">Specialty</span>
+                  <strong>Intro to Prompt Engineering for GenAI</strong>
+                  <p>Deeplearning.ai</p>
+                </article>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section container" id="contact">
+          <div class="contact-card glass reveal">
+            <div>
+              <p class="eyebrow">Contact</p>
+              <h2>Let's build something that feels modern, thoughtful, and production-ready.</h2>
+              <p>
+                I'm open to roles in software development, web development, CRM implementation, and technical support
+                where I can keep shipping useful experiences and growing fast.
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <a class="button" href="mailto:sayanthakur11@gmail.com">sayanthakur11@gmail.com</a>
+              <a class="button button-ghost" href="tel:+918420477615">Call Me</a>
+              <a class="button button-ghost" href="Sayan_Thakur_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+              <div class="social-links" aria-label="Social media links">
+                <a
+                  class="social-link"
+                  href="https://www.linkedin.com/in/sayan-thakur-98458a242/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn profile"
+                >
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/sayan.thakur.581"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook profile"
+                >
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/sayan._thakur_07/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram profile"
+                >
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                  <span>Instagram</span>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://github.com/sayanthakur007"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub profile"
+                >
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <button class="scroll-top" type="button" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+
+      <footer class="footer container">
+        <p>&copy; 2026 Sayan Thakur. </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
